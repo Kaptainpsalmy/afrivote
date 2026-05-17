@@ -1,0 +1,158 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLead Africa | Leadership Forum</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <span>TechLead<span class="logo-accent">Africa</span></span>
+                </div>
+                <div class="header-badge">2026 Leadership Forum</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel - Verification -->
+            <aside class="verification-panel">
+                <div class="panel-card">
+                    <div class="card-header">
+                        <i class="fas fa-shield-haltered"></i>
+                        <h2>Identity Verification</h2>
+                    </div>
+                    <p class="card-description">Verify your credentials to participate in the voting process</p>
+                    
+                    <form id="verificationForm" class="verification-form">
+                        <div class="input-group">
+                            <label for="whatsapp">
+                                <i class="fas fa-phone"></i>
+                                WhatsApp Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="whatsapp" 
+                                placeholder="+234 801 234 5678"
+                                required
+                            >
+                            <span class="input-hint">Include country code</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="social">
+                                <i class="fas fa-globe"></i>
+                                Professional Profile
+                            </label>
+                            <input 
+                                type="text" 
+                                id="social" 
+                                placeholder="linkedin.com/in/username"
+                            >
+                            <span class="input-hint">LinkedIn or GitHub</span>
+                        </div>
+
+                        <button type="submit" class="btn-verify" id="verifyBtn">
+                            <i class="fas fa-fingerprint"></i>
+                            <span>Verify Identity</span>
+                        </button>
+                    </form>
+
+                    <!-- Verification Status -->
+                    <div id="verificationStatus" class="verification-status hidden">
+                        <div class="status-content">
+                            <div class="spinner" id="statusSpinner"></div>
+                            <div class="status-message" id="statusMessage"></div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="panel-card activity-card">
+                    <div class="card-header">
+                        <i class="fas fa-clock-rotate-left"></i>
+                        <h3>Recent Votes</h3>
+                    </div>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <i class="fas fa-circle-check"></i>
+                            <span>Verification required to view</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Panel - Candidates -->
+            <section class="candidates-panel">
+                <div class="panel-card">
+                    <div class="card-header with-search">
+                        <div class="header-title">
+                            <i class="fas fa-users"></i>
+                            <h2>Nominees</h2>
+                            <span class="candidate-count" id="candidateCount">24 candidates</span>
+                        </div>
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Search by name or country..."
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Filter Chips -->
+                    <div class="filter-chips">
+                        <button class="chip active" data-filter="all">All Countries</button>
+                        <button class="chip" data-filter="Nigeria">Nigeria</button>
+                        <button class="chip" data-filter="Kenya">Kenya</button>
+                        <button class="chip" data-filter="Ghana">Ghana</button>
+                        <button class="chip" data-filter="South Africa">South Africa</button>
+                    </div>
+
+                    <!-- Candidates Grid -->
+                    <div class="candidates-grid" id="candidatesGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Vote Modal -->
+        <div class="modal-overlay" id="voteModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i class="fas fa-ballot-check"></i>
+                    <h3>Confirm Your Vote</h3>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Dynamic content -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" id="cancelVote">Cancel</button>
+                    <button class="btn-confirm" id="confirmVote">
+                        <i class="fas fa-check"></i>
+                        Confirm Vote
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
